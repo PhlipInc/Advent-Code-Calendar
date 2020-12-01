@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Day1
+{
+    public partial class Form1 : Form
+    {
+        private readonly int sum = 2020;
+        private readonly int[] NumberArray = { 1713, 1281, 1185, 1501, 1462, 1752, 1363, 1799, 1071, 1446, 1685, 1706, 1726, 1567, 1867, 1376, 1445, 1971, 1429, 1749, 438, 1291, 1261, 1585, 1859, 1835, 1630, 1975, 1467, 1829, 1669, 1638, 1961, 1719, 1238, 1751, 1514, 1744, 1547, 1677, 1811, 1820, 1371, 740, 1925, 1803, 1753, 1208, 1772, 1642, 1140, 1838, 1444, 1321, 1556, 1635, 1687, 688, 1650, 1580, 1290, 1812, 1814, 1384, 1426, 1374, 1973, 1791, 1643, 1846, 1676, 1724, 1810, 1911, 1765, 945, 1357, 1919, 1994, 1697, 1632, 1449, 1539, 1725, 1963, 1879, 1731, 1904, 1392, 1823, 1420, 1504, 204, 1661, 1575, 1401, 1806, 1417, 1965, 1960, 1990, 1409, 1649, 1566, 1957, 514, 1464, 1352, 1841, 1601, 1473, 1309, 1421, 1190, 1582, 1825, 655, 1666, 1878, 1891, 1579, 1176, 1557, 1910, 1747, 1388, 1493, 1372, 1522, 1515, 1745, 1494, 1763, 1147, 1364, 1469, 1165, 1901, 1368, 1234, 1308, 1416, 1678, 1541, 1509, 1427, 1223, 1496, 1600, 1383, 1295, 1415, 1890, 1694, 1793, 1529, 1984, 1576, 1244, 1348, 1085, 1770, 1358, 1611, 1159, 1964, 1647, 818, 1246, 1458, 1936, 1370, 1659, 1923, 1619, 1604, 1354, 1118, 1657, 1945, 1898, 1948, 798, 769, 1689, 1821, 1979, 1460, 1832, 1596, 1679, 1818, 1815, 1977, 1634, 1828, 1386, 1284, 1569, 1970 };
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void PrintDoubleButton_Click(object sender, EventArgs e)
+        {
+            PrintDouble(NumberArray, sum);
+        }
+
+        private void PrintTripleButton_Click(object sender, EventArgs e)
+        {
+            PrintTriple(NumberArray, sum);
+        }
+
+        private static void PrintDouble(int[] _numArray, int sum)
+        {
+            for (int num1 = 0; num1 < _numArray.Length; num1++)
+            {
+                for (int num2 = 0; num2 < _numArray.Length; num2++)
+                {
+                    if ((_numArray[num1] + _numArray[num2]) == sum)
+                    {
+                        Debug.WriteLine($"RESULT: {_numArray[num1]} | {_numArray[num2]}");
+                        return;
+                    }
+                }
+            }
+        }
+
+        private static void PrintTriple(int[] _numArray, int sum)
+        {
+            for (int num1 = 0; num1 < _numArray.Length; num1++)
+            {
+                for (int num2 = 0; num2 < _numArray.Length; num2++)
+                {
+                    for (int num3 = 0; num3 < _numArray.Length; num3++)
+                    {
+                        if ((_numArray[num1] + _numArray[num2] + _numArray[num3]) == sum)
+                        {
+                            Debug.WriteLine($"RESULT: {_numArray[num1]} | {_numArray[num2]} | {_numArray[num3]}");
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
